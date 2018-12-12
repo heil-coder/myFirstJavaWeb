@@ -1,7 +1,7 @@
 # myFirstJavaWeb
 
 # JavaWeb快速入门实例 手工搭建web项目
-[简单粗暴，详细得不要不要的 JavaWeb快速入门实例（1）](https://www.cnblogs.com/lrzy/articles/8258470.html "简单粗暴，详细得不要不要的 JavaWeb快速入门实例（1）")
+参考：[简单粗暴，详细得不要不要的 JavaWeb快速入门实例（1）](https://www.cnblogs.com/lrzy/articles/8258470.html "简单粗暴，详细得不要不要的 JavaWeb快速入门实例（1）")
 
 ## 服务器
 服务器就是一台电脑，而tomcat是一个容器，专门存放web项目的容器。  
