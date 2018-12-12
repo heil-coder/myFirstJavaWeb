@@ -252,7 +252,7 @@ servlet是Server Applet的缩写，我们再来看Applet，app是应用程序，
 ```
 javac -classpath servlet-api.jar Hello.java
 ```
-如果Hello.java编译时提示编码错误，请加入编码参数（此处未验证）：
+如果Hello.java编译时提示编码错误，请加入编码参数：
 
 ```
 javac -encoding utf-8 -classpath servlet-api.jar Hello.java
@@ -301,5 +301,12 @@ web.xml
   </servlet-mapping>
 </web-app>
 ```
+
+> 测试运行
+如果tomcat未启动则双击startup.bat，启动tomcat容器  
+
+然后，在浏览器的地址栏输入http://localhost:8080/myapp/hello  
+
+发现网页上一片空白，回顾我们的servlet程序(startup.bat的运行界面)，按理说控制台会打印一句话的  
 
 

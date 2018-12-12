@@ -11,7 +11,7 @@ public class Hello extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("OK...");
+        System.out.println("已进入服务器...");
     }
 
 }
