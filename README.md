@@ -10,12 +10,26 @@
   
 我们看到在tomcat容器根目录下，有一个webapps文件夹  
 ```
- ├─docs	          
- ├─examples		
- ├─host-manager      
- ├─manager    
- ├─ROOT	
- └─ ...
+├─yourTomcatDir			你的tomcat目录
+│  ├─backup
+│  ├─bin
+│  |  ├─ ...			
+│  |  ├─servlet-api.jar
+│  |  └─ ... 
+│  ├─conf
+│  ├─lib
+│  ├─logs
+│  ├─temp
+│  ├─webapp
+│  ├─webapps
+|  |  ├─docs	          
+|  |  ├─examples		
+|  |  ├─host-manager      
+|  |  ├─manager    
+|  |  ├─ROOT	
+|  |  └─ ...
+│  ├─worker
+│  └─ ...			更多省略
 ```
 
 ### 服务器启动
