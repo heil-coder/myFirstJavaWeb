@@ -204,4 +204,73 @@ public class Hello extends HttpServlet {
 }
 ```
 
+这是一个比较简单的HttpServlet 程序，说到servlet，他的意思就是服务器小程序。  
+
+原来，在英文中，但凡是let结尾的单词，都有微小的意思。比如servlet，server是服务器，let结尾，那么就是服务器小程序。  
+
+servlet是Server Applet的缩写，我们再来看Applet，app是应用程序，又是let结尾，所以应该就是小的应用程序。  
+
+
+> 我们用命令行的方式将java文件编译成class文件。
+
+在编译之前，我们先去tomcat容器的lib目录找一个jar：
+```
+├─yourTomcatDir			你的tomcat目录
+│  ├─backup
+│  ├─bin
+│  |  ├─ ...			
+│  |  ├─servlet-api.jar
+│  |  └─ ... 
+│  ├─conf
+│  ├─lib
+│  ├─logs
+│  ├─temp
+│  ├─webapp
+│  ├─webapps
+│  ├─worker
+│  └─ ...			更多省略
+```
+
+找到servlet-api.jar,复制一份，拷贝到classes目录下。  
+
+```
+├─myapp				 项目目录
+│  ├─WEB-INF
+│  |  ├─classes			服务器代码目录
+|  │  |  ├─Hello.java   java文件
+|  │  |  ├─servlet-api.jar			
+|  │  |  └─ ... 
+│  |  ├─web.xml
+│  |  └─ ... 
+│  ├─index.jsp		 欢迎页
+│  └─ ... 
+```
+
+然后，我们在该classes目录下，按住shift，鼠标右键，选择在此处打开命令行窗口（windows下的操作方式，如果linux，请直接在命令行中操作）。  
+
+输入：  
+```
+javac -classpath servlet-api.jar Hello.java
+```
+如果Hello.java编译时提示编码错误，请加入编码参数（此处未验证）：
+
+```
+javac -encoding utf-8 -classpath servlet-api.jar Hello.java
+```
+
+class文件就出来了
+```
+├─myapp				 项目目录
+│  ├─WEB-INF
+│  |  ├─classes			服务器代码目录
+|  │  |  ├─Hello.class   class文件
+|  │  |  ├─Hello.java   java文件
+|  │  |  ├─servlet-api.jar			
+|  │  |  └─ ... 
+│  |  ├─web.xml
+│  |  └─ ... 
+│  ├─index.jsp		 欢迎页
+│  └─ ... 
+```
+
 
