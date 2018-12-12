@@ -37,9 +37,9 @@
  └─ ... 
 ```
 
-> 项目名称就叫做webapp。  
+> 项目名称就叫做myapp。  
 
-打开webapp，根据web项目的规范，我们需要有一个WEB-INF文件夹。  
+打开myapp目录，根据web项目的规范，我们需要有一个WEB-INF文件夹。  
 ```
 ├─myapp				 项目目录
 │  ├─WEB-INF
