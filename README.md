@@ -153,3 +153,55 @@ Hello World!
 这就是手工搭建一个web项目的过程。
 
 只要你符合web项目的规范，包括文件夹的名字，文件的名字，就会被tomcat容器识别为一个web项目。
+
+
+> 写服务器代码
+
+在WEB-INF下面新建一个文件夹，名字叫做classes，这个也是规范，就叫这个名字，否则tomcat容器识别不了。  
+```
+├─myapp				 项目目录
+│  ├─WEB-INF
+│  |  ├─classes			服务器代码目录
+│  |  ├─web.xml
+│  |  └─ ... 
+│  ├─index.jsp		 欢迎页
+│  └─ ... 
+```
+
+里面在创建一个java文件，名字就叫Hello吧 
+
+```
+├─myapp				 项目目录
+│  ├─WEB-INF
+│  |  ├─classes			服务器代码目录
+|  │  |  ├─Hello.java   java文件
+|  │  |  └─ ... 
+│  |  ├─web.xml
+│  |  └─ ... 
+│  ├─index.jsp		 欢迎页
+│  └─ ... 
+```
+
+用编辑器打开，将下面的代码拷贝进去。
+
+```
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Hello extends HttpServlet {
+       
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request,response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("已经进入服务器...");
+    }
+
+}
+```
+
+
