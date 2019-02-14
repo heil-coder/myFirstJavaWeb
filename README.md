@@ -17,6 +17,9 @@
 │  |  ├─servlet-api.jar
 │  |  └─ ... 
 │  ├─conf
+│  |  ├─ ...			
+│  |  ├─tomcata-users.xml     tomcat用户角色配置
+│  |  └─ ... 
 │  ├─lib
 │  ├─logs
 │  ├─temp
@@ -24,12 +27,12 @@
 │  ├─webapps
 |  |  ├─docs	          
 |  |  ├─examples		
-|  |  ├─host-manager      
-|  |  ├─manager    
-|  |  ├─ROOT	
+|  |  ├─host-manager          主机管理
+|  |  ├─manager               管理其他发布的项目，如examples
+|  |  ├─ROOT                  访问http://localhost:8080页面对应的目录
 |  |  └─ ...
 │  ├─worker
-│  └─ ...			更多省略
+│  └─ ...			          更多省略
 ```
 
 ### 服务器启动
@@ -43,9 +46,9 @@
 ```
  ├─docs 
  ├─examples	
- ├─host-manager	
- ├─manager 
- ├─manager
+ ├─host-manager          主机管理
+ ├─manager               管理其他发布的项目，如examples
+ ├─ROOT                  访问http://localhost:8080页面对应的目录
  ├─myapp
  ├─ROOT	
  └─ ... 
