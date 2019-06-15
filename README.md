@@ -19,6 +19,7 @@
 │  ├─conf
 │  |  ├─ ...			
 │  |  ├─tomcata-users.xml     tomcat用户角色配置
+│  |  ├─server.xml            tomat主机配置
 │  |  └─ ... 
 │  ├─lib
 │  ├─logs
@@ -327,3 +328,62 @@ web.xml
 发现网页上一片空白，回顾我们的servlet程序(startup.bat的运行界面)，按理说控制台会打印一句话的  
 
 
+## 绑定域名
+> 编辑tomcat目录/conf/server.xml增加站点配置。
+```
+├─yourTomcatDir			你的tomcat目录
+│  ├─conf
+│  |  ├─ ...			
+│  |  ├─server.xml            tomat主机配置
+│  |  └─ ... 
+│  └─ ...			          更多省略
+```
+
+servlet.xml
+```
+...
+      <Host name="tomcat.YourDomain.com"  appBase="webapps"
+            unpackWARs="true" autoDeploy="true">
+
+        <!-- SingleSignOn valve, share authentication between web applications
+             Documentation at: /docs/config/valve.html -->
+        <!--
+        <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
+        -->
+
+        <!-- Access log processes all example.
+             Documentation at: /docs/config/valve.html
+             Note: The pattern used is equivalent to using pattern="common" -->
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log" suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+
+      </Host>
+
+
+      <Host name="YourDomain.com" appBase="/YourAppDir/demo"
+        unpackWARs="true" autoDeploy="true">
+
+        <Context path="YourPath" docBase="root" workDir="/YourAppDir/demo/temp"  />
+
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log" suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+      </Host>
+
+...
+
+```
+元素属性说明
+|元素名|属性|说明|
+|---|---|---|
+|Host||表示一个虚拟主机|
+|Host|name|指定主机域名|
+|Host|appBase|应用程序基本目录，即存放应用程序的目录|
+|Host|unpackWARs|如果为true，则tomcat会自动将WAR文件解压，否则不解压，直接从WAR文件中运行应用程序|
+|Host|autoDeploy||
+|Context||表示一个web应用程序，通常为WAR文件，关于WAR的具体信息见servlet规范|
+|Context|docBase|应用程序的路径或者是WAR文件存放的路径,如果docBase为war路径可不加文件扩展名（.war），且无需手动建立war文件的解压目录以避免目录权限等原因导至war文件无法解压|
+|Context|path|表示此web应用程序的url的前缀，这样请求的url为http://YourDomain.com:8080/path/****,path为空时，war解压应用程序路径为ROOT，否则为path值对应的路径|
+|Context|reloadable|这个属性非常重要，如果为true，则tomcat会自动检测应用程序的/WEB-INF/lib 和/WEB-INF/classes目录的变化，自动装载新的应用程序，我们可以在不重起tomcat的情况下改变应用程序|
+|Context|workdir|表示缓存文件的放置地址|
