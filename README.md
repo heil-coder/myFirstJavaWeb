@@ -382,7 +382,7 @@ servlet.xml
 |Host|name|指定主机域名|
 |Host|appBase|应用程序基本目录，即存放应用程序的目录|
 |Host|unpackWARs|如果为true，则tomcat会自动将WAR文件解压，否则不解压，直接从WAR文件中运行应用程序|
-|Host|autoDeploy||
+|Host|autoDeploy|如果为true,增加新的目录、war文件、修改WEB-INF/web.xml，会新建或重新部署应用，该选项方便部署|
 |Context||表示一个web应用程序，通常为WAR文件，关于WAR的具体信息见servlet规范|
 |Context|docBase|应用程序的路径或者是WAR文件存放的路径,如果docBase为war路径可不加文件扩展名（.war），且无需手动建立war文件的解压目录以避免目录权限等原因导至war文件无法解压|
 |Context|path|表示此web应用程序的url的前缀，这样请求的url为 http://YourDomain.com:8080/path/**** ,path为空时war解压应用程序路径为ROOT否则为path值对应的路径|
